@@ -4,7 +4,7 @@
  * One-time (idempotent) importer that reads TA's source-of-truth spreadsheets
  * and populates the Procurement Intelligence Platform's taxonomy tables:
  *
- *   Updated__Material_List.xlsx   →  skus, suppliers, materials, sku_materials
+ *   TA_Material_List.xlsx   →  skus, suppliers, materials, sku_materials
  *   TA_Commodity_Origin_Map.xlsx  →  commodities, material_commodities
  *
  * Then derives:
@@ -31,6 +31,8 @@
  *   A `_review` flag is set on auto-classified rows so the admin UI can surface them.
  */
 
+import * as dotenv from 'dotenv';
+dotenv.config({ path: '.env.local' });
 import { createClient } from '@supabase/supabase-js';
 import * as XLSX from 'xlsx';
 import { readFileSync } from 'node:fs';
@@ -41,7 +43,7 @@ import path from 'node:path';
 // ─────────────────────────────────────────────────────────────────────────────
 
 const DATA_DIR = path.resolve(process.cwd(), 'data');
-const MATERIAL_FILE = path.join(DATA_DIR, 'Updated__Material_List.xlsx');
+const MATERIAL_FILE = path.join(DATA_DIR, 'TA_Material_List.xlsx');
 const COMMODITY_FILE = path.join(DATA_DIR, 'TA_Commodity_Origin_Map.xlsx');
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;

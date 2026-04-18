@@ -42,7 +42,7 @@ INSERT INTO feeds (name, url, priority_tier, category, active, fetch_notes) VALU
 
   ('Reuters Geopolitics (via Google News)',
    'https://news.google.com/rss/search?q=site:reuters.com+when:7d+(Iran+OR+Hormuz+OR+OPEC+OR+China+tariff+OR+sanctions)&hl=en-US&gl=US&ceid=US:en',
-   1, 'geopolitics', TRUE, 'Google News RSS proxy for Reuters geopolitics. Narrow keyword filter to cut noise'),
+   1, 'geopolitics', TRUE, 'Google News RSS proxy for Reuters geopolitics. Narrow keyword filter to cut noise');
 
 -- CONFIRMED DEAD — DO NOT ADD (kept here for reference only) --------------------
 -- feeds.reuters.com/*            — shut down June 2020
@@ -52,7 +52,6 @@ INSERT INTO feeds (name, url, priority_tier, category, active, fetch_notes) VALU
 -- worldbank.org/en/news/all/rss  — 404; manual check required
 -- imf.org/en/News/RSS            — returns HTML landing page, not a feed
 -- bps.go.id/rss                  — 403; statistics bureau; engineer to locate current endpoint
-;
 
 -- ============================================================================
 -- FEED HEALTH NOTES FOR ENGINEER
